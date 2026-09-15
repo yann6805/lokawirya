@@ -1,0 +1,21 @@
+﻿      value: String(
+        requests.filter(
+          (r) =>
+            r.workerId === activeWorker.id &&
+            (r.status === 'Selesai belum dirating' || r.status === 'Selesai sudah dirating'),
+        ).length,
+      ),
+      trend: '+1',
+      icon: Check,
+    },
+    {
+      label: 'Permintaan masuk',
+      value: String(
+        requests.filter(
+          (r) => r.workerId === activeWorker.id && r.status === 'Menunggu',
+        ).length,
+      ),
+      trend: '+0',
+      icon: Inbox,
+    },
+    {
